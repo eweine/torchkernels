@@ -68,3 +68,7 @@ class RFF:
 
 	def apply_W2(self):
 		raise NotImplementedError("This method must be implemented in the subclass")
+
+	def update_shape(self, shape_matrix):
+		self.shape_matrix = shape_matrix
+		self.sqrt_M = torch.linalg.cholesky(self.shape_matrix.to(self.device))
